@@ -29,4 +29,9 @@ public class Rectangle extends Figure {
             return super.equals(o) && (this.width == r.getWidth()) && (this.height == r.getHeight());
         }
     }
+    
+    @Override
+    public void accept(FigureVisitor fv) {
+        fv.visit(this);
+    }
 }

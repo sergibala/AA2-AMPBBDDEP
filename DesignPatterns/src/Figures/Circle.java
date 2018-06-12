@@ -23,4 +23,9 @@ public class Circle extends Figure {
             return super.equals(o) && (this.r == c.getRadius());
         }
     }
+    
+    @Override
+    public void accept(FigureVisitor fv) {
+        fv.visit(this);
+    }
 }

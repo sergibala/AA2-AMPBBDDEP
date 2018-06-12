@@ -28,4 +28,6 @@ public abstract class Figure {
             return (this.x==f.getX()) && (this.y==f.getY());
         }
     }
+    
+    public abstract void accept(FigureVisitor fv);
 }

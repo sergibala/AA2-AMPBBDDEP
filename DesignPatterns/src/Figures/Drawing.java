@@ -26,4 +26,9 @@ public class Drawing extends Figure {
             return super.equals(o) && this.components.equals(d.getComponents());
         }
     }
+    
+    @Override
+    public void accept(FigureVisitor fv) {
+        fv.visit(this);
+    }
 }
