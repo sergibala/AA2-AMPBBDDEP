@@ -16,4 +16,14 @@ public class Drawing extends Figure {
     public List<Figure> getComponents() {
         return unmodifiableList(this.components);
     }
+    
+    @Override
+    public boolean equals(Object o) {
+        if(!(o instanceof Drawing)) {
+            return false;
+        } else {
+            Drawing d = (Drawing) o;
+            return super.equals(o) && this.components.equals(d.getComponents());
+        }
+    }
 }

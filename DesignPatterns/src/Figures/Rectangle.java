@@ -19,4 +19,14 @@ public class Rectangle extends Figure {
     public double getHeight() {
         return this.height;
     }
+    
+    @Override
+    public boolean equals(Object o) {
+        if(!(o instanceof Rectangle)) {
+            return false;
+        } else {
+            Rectangle r = (Rectangle) o;
+            return super.equals(o) && (this.width == r.getWidth()) && (this.height == r.getHeight());
+        }
+    }
 }
