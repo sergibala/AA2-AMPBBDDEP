@@ -1,10 +1,6 @@
 
 package Figures;
 
-/**
- *
- * @author sergibala
- */
 public class Circle extends Figure {
     
     private final double r;

@@ -1,10 +1,6 @@
 
 package Figures;
 
-/**
- *
- * @author sergibala
- */
 public abstract class Figure {
     
     private final double x;

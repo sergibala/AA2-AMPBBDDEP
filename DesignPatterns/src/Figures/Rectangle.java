@@ -1,10 +1,6 @@
 
 package Figures;
 
-/**
- *
- * @author sergibala
- */
 public class Rectangle extends Figure {
     
     private final double width;
