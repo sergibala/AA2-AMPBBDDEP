@@ -39,13 +39,28 @@ public class DrawingBuilderTest {
     public void adding_diferent_components_and_building() {
         Figure fr = new Rectangle(40.0, 20.0, 10.0, 15.0);
         Figure fc = new Circle(10.0, 60.0, 5.0);
-        Figure fd = new Drawing(25.0, 15.0, new ArrayList<>());
         List<Figure> list = new ArrayList<>();
         list.add(fr);
         list.add(fc);
-        list.add(fd);
         builder.addComponent(fr);
         builder.addComponent(fc);
+        Drawing expected = new Drawing(20.0, 30.0, list);
+        assertEquals(expected, builder.build());
+    }
+    
+    @Test
+    public void adding_drawingComponent_with_other_components_and_building() {
+        Figure fr = new Rectangle(40.0, 20.0, 10.0, 15.0);
+        Figure fc = new Circle(10.0, 60.0, 5.0);
+        Figure fr2 = new Rectangle(20.0, 25.0, 15.0, 12.5);
+        List<Figure> fdList = new ArrayList<>();
+        fdList.add(fc);
+        fdList.add(fr2);
+        Figure fd = new Drawing(25.0, 15.0, fdList);
+        List<Figure> list = new ArrayList<>();
+        list.add(fr);
+        list.add(fd);
+        builder.addComponent(fr);
         builder.addComponent(fd);
         Drawing expected = new Drawing(20.0, 30.0, list);
         assertEquals(expected, builder.build());

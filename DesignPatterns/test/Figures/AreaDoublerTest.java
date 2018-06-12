@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Figures;
 
 import java.util.ArrayList;
@@ -11,10 +7,6 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Sergi
- */
 public class AreaDoublerTest {
 
     private AreaDoubler ad;
@@ -54,5 +46,27 @@ public class AreaDoublerTest {
         Drawing expected = new DrawingBuilder(25.0, 15.0).addComponent(frScaled).addComponent(fcScaled).build();
         Drawing result = (Drawing) ad.getFigure();
         assertEquals(expected, result);
-    }    
+    }
+
+    @Test
+    public void test_drawing_with_drawingcomponent() {
+        Figure fr = new Rectangle(40.0, 20.0, 10.0, 15.0);
+        Figure frScaled = new Rectangle(40.0, 20.0, 10.0*scale, 15.0*scale);
+        Figure fc = new Circle(10.0, 60.0, 5.0);
+        Figure fcScaled = new Circle(10.0, 60.0, 5.0*scale);
+        List<Figure> list = new ArrayList<>();
+        list.add(fr);
+        list.add(fc);
+        Drawing drawingNoBuilder = new Drawing(15.0, 35.0, list);
+        Drawing d = new DrawingBuilder(10.0, 30.0).addComponent(drawingNoBuilder).build();
+        d.accept(ad);
+        Drawing result = (Drawing) ad.getFigure();
+        
+        List<Figure> listScaled = new ArrayList<>();
+        listScaled.add(frScaled);
+        listScaled.add(fcScaled);
+        Drawing drawingScaled = new Drawing(15.0, 35.0, listScaled);
+        Drawing expected = new DrawingBuilder(10.0, 30.0).addComponent(drawingScaled).build();
+        assertEquals(expected, result);
+    }
 }
