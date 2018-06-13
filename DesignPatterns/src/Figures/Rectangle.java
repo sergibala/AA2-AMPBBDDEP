@@ -1,7 +1,7 @@
 
 package Figures;
 
-public class Rectangle extends Figure {
+public final class Rectangle extends Figure {
     
     private final double width;
     private final double height;

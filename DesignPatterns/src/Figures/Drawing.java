@@ -4,7 +4,7 @@ package Figures;
 import static java.util.Collections.unmodifiableList;
 import java.util.List;
 
-public class Drawing extends Figure {
+public final class Drawing extends Figure {
     
     private final List<Figure> components;
     

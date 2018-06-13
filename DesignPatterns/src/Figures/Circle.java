@@ -1,7 +1,7 @@
 
 package Figures;
 
-public class Circle extends Figure {
+public final class Circle extends Figure {
     
     private final double r;
     
